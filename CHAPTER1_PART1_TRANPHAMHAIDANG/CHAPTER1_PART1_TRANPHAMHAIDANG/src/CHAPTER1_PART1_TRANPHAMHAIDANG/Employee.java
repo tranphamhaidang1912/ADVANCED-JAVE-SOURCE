@@ -15,25 +15,25 @@ enum LevelTax {
 		double personalIncome = 0;
 		switch (this) {
 		case LEVEL1:
-			personalIncome = taxIncome * 0.05;
+			personalIncome = taxIncome * LEVEL1.PERCENTTAX;
 			return personalIncome;
 		case LEVEL2:
-			personalIncome = LEVEL1.TAX + (taxIncome - LEVEL1.INCOMETAX ) * 0.1;
+			personalIncome = LEVEL1.TAX + (taxIncome - LEVEL1.INCOMETAX ) * LEVEL2.PERCENTTAX;
 			return personalIncome;
 		case LEVEL3:
-			personalIncome = LEVEL1.TAX + LEVEL2.TAX + (taxIncome - LEVEL2.INCOMETAX) * 0.15;
+			personalIncome = LEVEL1.TAX + LEVEL2.TAX + (taxIncome - LEVEL2.INCOMETAX) * LEVEL3.PERCENTTAX;
 			return personalIncome;
 		case LEVEL4:
-			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + (taxIncome - LEVEL3.INCOMETAX) * 0.2;
+			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + (taxIncome - LEVEL3.INCOMETAX) * LEVEL4.PERCENTTAX;
 			return personalIncome;
 		case LEVEL5:
-			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + (taxIncome - LEVEL4.INCOMETAX) * 0.25;
+			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + (taxIncome - LEVEL4.INCOMETAX) * LEVEL5.PERCENTTAX;
 			return personalIncome;
 		case LEVEL6:
-			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + LEVEL5.TAX + (taxIncome - LEVEL5.INCOMETAX) * 0.3;
+			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + LEVEL5.TAX + (taxIncome - LEVEL5.INCOMETAX) * LEVEL6.PERCENTTAX;
 			return personalIncome;
 		case LEVEL7:
-			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + LEVEL5.TAX + LEVEL6.TAX + (taxIncome - LEVEL6.INCOMETAX) * 0.35;
+			personalIncome = LEVEL1.TAX + LEVEL2.TAX + LEVEL3.TAX + LEVEL4.TAX + LEVEL5.TAX + LEVEL6.TAX + (taxIncome - LEVEL6.INCOMETAX) * LEVEL7.PERCENTTAX;
 			return personalIncome;
 		default:
 			break;
@@ -55,7 +55,7 @@ public class Employee {
 	private int amountReducePerson;
 	private double allowance;
 	private String percenttax;
-	private final double BASESALARY = 126000;
+	private final double BASESALARY = 1260000;
 
 	public String getFullName() {
 		return fullName;
@@ -125,31 +125,31 @@ public class Employee {
 			personalIncomeTax = LevelTax.LEVEL1.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "5 / 100";
 		}	
-		else if(getIncome() < 10000000)
+		else if(getTaxIncome() < 10000000)
 		{
 			personalIncomeTax = LevelTax.LEVEL2.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "10 / 100";
 		}
 			
-		else if(getIncome() < 18000000)
+		else if(getTaxIncome() < 18000000)
 		{
 			personalIncomeTax = LevelTax.LEVEL3.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "15 / 100";
 		}
 			
-		else if(getIncome() < 32000000)
+		else if(getTaxIncome() < 32000000)
 		{
 			personalIncomeTax = LevelTax.LEVEL4.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "20 / 100";
 		}
 			
-		else if(getIncome() < 52000000)
+		else if(getTaxIncome() < 52000000)
 		{
 			personalIncomeTax = LevelTax.LEVEL5.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "25 / 100";
 		}
 			
-		else if(getIncome() < 80000000)
+		else if(getTaxIncome() < 80000000)
 		{
 			personalIncomeTax = LevelTax.LEVEL6.getPersonalIncomeTax(getTaxIncome());
 			percenttax = "30 / 100";
@@ -166,6 +166,6 @@ public class Employee {
 	
 	//Calculate the real income
 	public double getRealIncome() {
-		return getIncome() - getTaxIncome();
+		return getIncome() - getPersonalIncomeTax();
 	}
 }
