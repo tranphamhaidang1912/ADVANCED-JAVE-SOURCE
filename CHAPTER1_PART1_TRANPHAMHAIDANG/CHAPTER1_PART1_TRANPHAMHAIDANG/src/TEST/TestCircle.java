@@ -7,6 +7,12 @@ import org.junit.Test;
 import CHAPTER1_PART1_TRANPHAMHAIDANG.Circle;
 import CHAPTER1_PART1_TRANPHAMHAIDANG.Point;
 
+/*
+ * Author: Tran Pham Hai Dang
+ * Date: 19/08/2016
+ * Version: 1.0
+ * UnitTest for Circle
+ */
 public class TestCircle {
 
 	Point O = new Point();

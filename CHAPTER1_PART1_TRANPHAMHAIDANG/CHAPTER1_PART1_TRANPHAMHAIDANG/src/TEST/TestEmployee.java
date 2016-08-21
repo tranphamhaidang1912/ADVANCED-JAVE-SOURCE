@@ -6,6 +6,12 @@ import org.junit.Test;
 
 import CHAPTER1_PART1_TRANPHAMHAIDANG.Employee;
 
+/*
+ * Author: Tran Pham Hai Dang
+ * Date: 19/08/2016
+ * Version: 1.0
+ * UnitTest for Employee
+ */
 public class TestEmployee {
 
 	Employee employee = new Employee();

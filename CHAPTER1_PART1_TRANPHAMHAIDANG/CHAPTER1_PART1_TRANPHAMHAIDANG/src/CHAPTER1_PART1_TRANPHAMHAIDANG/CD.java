@@ -1,5 +1,11 @@
 package CHAPTER1_PART1_TRANPHAMHAIDANG;
 
+/*
+ * Author: Tran Pham Hai Dang
+ * Date: 19/08/2016
+ * Version: 1.0
+ * Class for CD
+ */
 public class CD {
 
 	private String id;
@@ -62,6 +68,7 @@ public class CD {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//Print information of CD
 	public void printCD() {
 		System.out.println("ID: " + id);
 		System.out.println("Name: " + name);

@@ -7,6 +7,12 @@ import org.junit.Test;
 import CHAPTER1_PART1_TRANPHAMHAIDANG.Point;
 import CHAPTER1_PART1_TRANPHAMHAIDANG.Rectangle;
 
+/*
+ * Author: Tran Pham Hai Dang
+ * Date: 19/08/2016
+ * Version: 1.0
+ * UnitTest for Rectangle
+ */
 public class TestRectangle {
 
 	Point A = new Point();
