@@ -50,6 +50,6 @@ public class Desktop extends Computer {
 		super.showInformationComputer();
 		System.out.println("CPU: " + CPU);
 		System.out.println("RAM: " + RAM);
-		System.out.println("Total price: " + String.format("%.0f", totalPrice()));
+		System.out.println("Total price: " + String.format("%.0f", getTotalPrice()));
 	}
 }

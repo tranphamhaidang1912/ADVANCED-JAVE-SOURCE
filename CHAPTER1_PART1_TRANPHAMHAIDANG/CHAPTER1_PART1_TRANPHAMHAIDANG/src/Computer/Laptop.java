@@ -61,6 +61,6 @@ public class Laptop extends Computer {
 		System.out.println("Weight: " + weight);
 		System.out.println("Time of PIN: " + timeOfPIN);
 		System.out.println("Size of screen: " + sizeOfScreen);
-		System.out.println("Total price: " + String.format("%.0f", totalPrice()));
+		System.out.println("Total price: " + String.format("%.0f", getTotalPrice()));
 	}
 }

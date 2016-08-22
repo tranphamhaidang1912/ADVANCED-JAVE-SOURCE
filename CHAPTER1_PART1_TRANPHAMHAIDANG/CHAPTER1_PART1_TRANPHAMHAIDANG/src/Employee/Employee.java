@@ -51,12 +51,12 @@ enum LevelTax {
 
 public class Employee {
 
-	private String fullName;
-	private double wage;
-	private int amountReducePerson;
-	private double allowance;
-	private String percenttax;
-	private final double BASESALARY = 1260000;
+	String fullName;
+	double wage;
+	int amountReducePerson;
+	double allowance;
+	String percenttax;
+	final double BASESALARY = 1260000;
 
 	public String getFullName() {
 		return fullName;
@@ -110,7 +110,7 @@ public class Employee {
 	
 	//Calculate the income
 	public double getIncome() {
-		return ((wage * BASESALARY) + allowance);
+		return wage * BASESALARY + allowance;
 	}
 	
 	//Calculate the tax income
@@ -168,5 +168,13 @@ public class Employee {
 	//Calculate the real income
 	public double getRealIncome() {
 		return getIncome() - getPersonalIncomeTax();
+	}
+	
+	//Show the information of Employee
+	public void showInformationEmployee() {
+		System.out.println("Full name: " + fullName);
+		System.out.println("Wage: " + wage);
+		System.out.println("Amount reduce person: " + amountReducePerson);
+		System.out.println("Allowance: " + allowance);
 	}
 }

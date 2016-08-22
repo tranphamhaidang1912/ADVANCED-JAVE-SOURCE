@@ -9,9 +9,11 @@ public class MainHuman {
 		// TODO Auto-generated method stub
 
 		try {
-			Human[] human = new Human[100];
+			Teacher[] teacher = new Teacher[100];
+			Student[] student = new Student[100];
 			String choose = "";
-			int numberOfHuman = 0;
+			int numberOfTeacher = 0;
+			int numberOfStudent = 0;
 			do {
 				System.out.println("Input information of Human");
 				System.out.println("Input full name:");
@@ -33,7 +35,8 @@ public class MainHuman {
 					double wage = sc.nextDouble();
 					System.out.println("Input allowance:");
 					double allowance = sc.nextDouble();
-					human[numberOfHuman] = new Teacher(fullName, birthDate, address, phoneNumber, headClass, wage, allowance);
+					teacher[numberOfTeacher] = new Teacher(fullName, birthDate, address, phoneNumber, headClass, wage, allowance);
+					numberOfTeacher++;
 				}
 				else if(choose.compareTo("2") == 0)
 				{
@@ -43,7 +46,8 @@ public class MainHuman {
 					double semesterScore1 = sc.nextDouble();
 					System.out.println("Input semester 2 score:");
 					double semesterScore2 = sc.nextDouble();
-					human[numberOfHuman] = new Student(fullName, birthDate, address, phoneNumber, studentOfClass, semesterScore1, semesterScore2);
+					student[numberOfStudent] = new Student(fullName, birthDate, address, phoneNumber, studentOfClass, semesterScore1, semesterScore2);
+					numberOfStudent++;
 				}
 				else
 				{
@@ -51,16 +55,18 @@ public class MainHuman {
 					continue;
 				}
 				
-				numberOfHuman++;
-				
 				choose = sc.nextLine();
 				System.out.println("Do you want to add more computer? (y / n)");
 				choose = sc.nextLine();
 			} while (choose.compareTo("y") == 0);	
 			
-			System.out.println("List of Teacher / Student");
-			for (int i = 0; i < numberOfHuman; i++)
-				human[i].showInformationHuman();
+			System.out.println("List of Teacher");
+			for (int i = 0; i < numberOfTeacher; i++)
+				teacher[i].showInformationHuman();
+			
+			System.out.println("List of Student");
+			for (int i = 0; i < numberOfStudent; i++)
+				student[i].showInformationHuman();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error: " + e.toString());

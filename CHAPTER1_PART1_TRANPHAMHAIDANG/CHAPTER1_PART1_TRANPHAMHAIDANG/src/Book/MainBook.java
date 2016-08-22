@@ -37,38 +37,19 @@ public class MainBook {
 				System.out.println("1/Text book\n2/Reference book");
 				choose = sc.nextLine();
 				
-				double totalPrice = 0;
-				double averagePrice = 0;
-				
 				if(choose.compareTo("1") == 0)
 				{
 					System.out.println("Input state:");
 					String state = sc.nextLine();
 					textBook[numberOfTextBook] = new TextBook(id, name, date, price, number, manufacturer, state);
 					numberOfTextBook++;
-					
-					for (int i = 0; i < numberOfTextBook; i++) {
-						textBook[i].showInformationBook();
-						totalPrice += textBook[i].getTotalPriceTextBook();
-					}
-					
-					System.out.println("Total price of Text book: " + totalPrice);
 				}
 				else if(choose.compareTo("2") == 0)
 				{
-					System.out.println("Tax:");
+					System.out.println("Input tax:");
 					double tax = sc.nextDouble();
-					referenceBook[numberOfReferenceBook] = new ReferenceBook(id, name, date, totalPrice, number, manufacturer, tax);
+					referenceBook[numberOfReferenceBook] = new ReferenceBook(id, name, date, price, number, manufacturer, tax);
 					numberOfReferenceBook++;
-					
-					for (int i = 0; i < numberOfReferenceBook; i++) {
-						referenceBook[i].showInformationBook();
-						totalPrice += referenceBook[i].getTotalPriceReferenceBook();
-					}
-					averagePrice = totalPrice / numberOfReferenceBook;
-					
-					System.out.println("Total price of Reference book: " + totalPrice);
-					System.out.println("Average price of Reference book: " + averagePrice);
 					choose = sc.nextLine();
 				}
 				else
@@ -80,6 +61,28 @@ public class MainBook {
 				System.out.println("Do you want to add more computer? (y / n)");
 				choose = sc.nextLine();
 			} while (choose.compareTo("y") == 0);	
+			
+			double totalPrice = 0;
+			double averagePrice = 0;
+			
+			System.out.println("List of Text book");
+			for (int i = 0; i < numberOfTextBook; i++)
+			{
+				textBook[i].showInformationBook();
+				totalPrice += textBook[i].getTotalPriceTextBook();
+			}
+			System.out.println("Total price of Text book: " + totalPrice);
+			
+			totalPrice = 0;
+			System.out.println("List of Reference book");
+			for (int i = 0; i < numberOfReferenceBook; i++)
+			{
+				referenceBook[i].showInformationBook();
+				totalPrice += referenceBook[i].getTotalPriceReferenceBook();
+			}
+			averagePrice = totalPrice / numberOfReferenceBook;
+			System.out.println("Total price of Reference book: " + totalPrice);
+			System.out.println("Average price of Reference book: " + averagePrice);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error: " + e.toString());

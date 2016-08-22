@@ -59,7 +59,7 @@ public class Computer {
 	}
 	
 	//Calculate the total price of Computer
-	public double totalPrice() {
+	public double getTotalPrice() {
 		return price * number;
 	}
 	

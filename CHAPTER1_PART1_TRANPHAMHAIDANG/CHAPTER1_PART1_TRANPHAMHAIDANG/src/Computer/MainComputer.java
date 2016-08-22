@@ -9,9 +9,11 @@ public class MainComputer {
 		// TODO Auto-generated method stub
 
 		try {
-			Computer[] computer = new Computer[100];
+			Desktop[] desktop = new Desktop[100];
+			Laptop[] laptop = new Laptop[100];
 			String choose = "";
-			int numberOfComputer = 0;
+			int numberOfDesktop = 0;
+			int numberOfLaptop = 0;
 			do {
 				System.out.println("Input information of computer");
 				System.out.println("Input id:");
@@ -33,7 +35,8 @@ public class MainComputer {
 					String cPU = sc.nextLine();
 					System.out.println("Input RAM:");
 					String rAM = sc.nextLine();
-					computer[numberOfComputer] = new Desktop(id, price, manufacturer, number, cPU, rAM);
+					desktop[numberOfDesktop] = new Desktop(id, price, manufacturer, number, cPU, rAM);
+					numberOfDesktop++;
 				}
 				else if(choose.compareTo("2") == 0)
 				{
@@ -43,7 +46,8 @@ public class MainComputer {
 					String timeOfPIN = sc.nextLine();
 					System.out.println("Input size of screen:");
 					String sizeOfScreen = sc.nextLine();
-					computer[numberOfComputer] = new Laptop(id, price, manufacturer, number, weight, timeOfPIN, sizeOfScreen);
+					laptop[numberOfLaptop] = new Laptop(id, price, manufacturer, number, weight, timeOfPIN, sizeOfScreen);
+					numberOfLaptop++;
 				}
 				else
 				{
@@ -51,15 +55,17 @@ public class MainComputer {
 					continue;
 				}
 				
-				numberOfComputer++;
-				
 				System.out.println("Do you want to add more computer? (y / n)");
 				choose = sc.nextLine();
 			} while (choose.compareTo("y") == 0);	
 			
-			System.out.println("List of computer");
-			for (int i = 0; i < numberOfComputer; i++)
-				computer[i].showInformationComputer();
+			System.out.println("List of Desktop");
+			for (int i = 0; i < numberOfDesktop; i++)
+				desktop[i].showInformationComputer();
+			
+			System.out.println("List of Laptop");
+			for (int i = 0; i < numberOfLaptop; i++)
+				laptop[i].showInformationComputer();
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error: " + e.toString());
