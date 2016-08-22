@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import CHAPTER1_PART1_TRANPHAMHAIDANG.Circle;
-import CHAPTER1_PART1_TRANPHAMHAIDANG.Point;
+import BackUp.Circle;
+import BackUp.Point;
 
 /*
  * Author: Tran Pham Hai Dang

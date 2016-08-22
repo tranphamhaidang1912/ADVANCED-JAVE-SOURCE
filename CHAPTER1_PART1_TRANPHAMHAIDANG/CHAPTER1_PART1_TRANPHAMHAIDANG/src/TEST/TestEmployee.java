@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import CHAPTER1_PART1_TRANPHAMHAIDANG.Employee;
+import BackUp.Employee;
 
 /*
  * Author: Tran Pham Hai Dang

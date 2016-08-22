@@ -1,11 +1,9 @@
 package TEST;
 
 import static org.junit.Assert.*;
-import CHAPTER1_PART1_TRANPHAMHAIDANG.LinearEquation1;
+import BackUp.LinearEquation1;
 
 import org.junit.Test;
-
-import CHAPTER1_PART1_TRANPHAMHAIDANG.LinearEquation1;
 
 /*
  * Author: Tran Pham Hai Dang

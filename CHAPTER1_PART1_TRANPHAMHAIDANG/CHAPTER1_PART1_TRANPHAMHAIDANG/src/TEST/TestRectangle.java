@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import CHAPTER1_PART1_TRANPHAMHAIDANG.Point;
-import CHAPTER1_PART1_TRANPHAMHAIDANG.Rectangle;
+import BackUp.Point;
+import BackUp.Rectangle;
 
 /*
  * Author: Tran Pham Hai Dang
