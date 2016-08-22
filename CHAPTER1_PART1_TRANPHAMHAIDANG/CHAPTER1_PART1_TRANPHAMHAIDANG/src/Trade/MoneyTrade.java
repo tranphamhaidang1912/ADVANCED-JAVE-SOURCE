@@ -48,6 +48,7 @@ public class MoneyTrade extends Trade {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//Calculate the total price of Money trade
 	public double getTotalPrice() {
 		double totalPrice = 0;
 		switch (moneyType) {

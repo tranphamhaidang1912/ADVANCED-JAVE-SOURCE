@@ -44,6 +44,7 @@ public class GoldTrade extends Trade {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Calculate the total price of Gold trade
 	public double getTotalPrice() {
 		double totalPrice = 0;
 		switch (goldType) {
