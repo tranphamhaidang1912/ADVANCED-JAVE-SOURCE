@@ -2,9 +2,6 @@ package Transport;
 
 import java.util.Scanner;
 
-import Instrument.NonStringedInstrument;
-import Instrument.StringedInstrument;
-
 public class MainTransport {
 
 	private static Scanner sc = new Scanner(System.in);
