@@ -2,7 +2,7 @@ package Transport;
 
 /*
  * Author: Tran Pham Hai Dang
- * Date: 19/08/2016
+ * Date: 23/08/2016
  * Version: 1.0
  * Class for Ship
  */

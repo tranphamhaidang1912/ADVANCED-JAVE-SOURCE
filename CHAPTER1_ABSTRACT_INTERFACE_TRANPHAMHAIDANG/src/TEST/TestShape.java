@@ -8,6 +8,12 @@ import Shape.Circle;
 import Shape.Rectangle;
 import Shape.Square;
 
+/*
+ * Author: Tran Pham Hai Dang
+ * Date: 23/08/2016
+ * Version: 1.0
+ * UnitTest for Shape
+ */
 public class TestShape {
 
 	Circle circle = new Circle();
