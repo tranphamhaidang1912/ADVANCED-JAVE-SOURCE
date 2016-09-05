@@ -11,7 +11,7 @@ public class Rectangle implements Shape {
 	@Override
 	public String draw() {
 		// TODO Auto-generated method stub
-		return "Shape: Rectangle";
+		return "Shape: Rectangle with normal border";
 	}
 
 }

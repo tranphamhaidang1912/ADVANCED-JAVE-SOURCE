@@ -18,14 +18,14 @@ public class RedShapeDecorator extends ShapeDecorator {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private String setRedBorder(Shape shape) {
-		return "Border Color: Red";
-	}
-	
 	@Override
 	public String draw() {
 		// TODO Auto-generated method stub
-		return this.shape.draw() + " and " + setRedBorder(shape);
+		if(shape instanceof Circle)
+			return "Shape: Circle with red border";
+		else if(shape instanceof Rectangle)
+			return "Shape: Rectangle with red border";
+		return null;
 	}
 	
 }
