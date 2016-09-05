@@ -1,5 +1,11 @@
 package Shape;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 01-Sep-2016
+ * Class for Shape Factory
+ */
 public class ShapeFactory {
 
 	public Shape getShape(String shapeType) {

@@ -1,5 +1,11 @@
 package Teacher;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 01-Sep-2016
+ * Class for Teacher
+ */
 public class Teacher {
 
 	private static Teacher instance = new Teacher();
