@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/MultiLanguage/resource_en_US.properties=UTF-8
-encoding//src/MultiLanguage/resource_vi_VN.properties=UTF-8
+encoding//src/ManageCD/resource_vi_VN.properties=UTF-8
+encoding//src/MultipleLanguage/resource_en_US.properties=UTF-8
+encoding//src/MultipleLanguage/resource_vi_VN.properties=UTF-8
+encoding/<project>=UTF-8

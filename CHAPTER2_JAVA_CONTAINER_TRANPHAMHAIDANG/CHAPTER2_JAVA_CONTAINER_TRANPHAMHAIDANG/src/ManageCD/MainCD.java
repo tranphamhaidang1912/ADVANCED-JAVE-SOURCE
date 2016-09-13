@@ -32,10 +32,13 @@ public class MainCD {
 				Collections.sort(listCD);
 				
 				System.out.println("LIST CD\n");
+				double sumPirce = 0;
 				for (CD cd : listCD) {
 					cd.showInformation();
+					sumPirce += cd.getPrice();
 					System.out.println();
 				}
+				System.out.println("Total price: " + sumPirce + "\n");
 				
 				sc.nextLine();
 				System.out.println("Do you want to add more CD? (y / n)");
