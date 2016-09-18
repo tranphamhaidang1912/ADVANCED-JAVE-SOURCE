@@ -52,12 +52,16 @@ public class MainEmployee {
 					System.out.println("Input name:");
 					String nameSearch = sc.nextLine();
 					
-					Collections.sort(listEmployee);
-					int index = Collections.binarySearch(listEmployee, new Employee(nameSearch));
-					
-					if(index != -1)
-						listEmployee.get(index).showInformation();
-					else
+					boolean flag = false;
+					for (Employee employee : listEmployee) {
+						if (employee.getName().compareToIgnoreCase(nameSearch) == 0) {
+							employee.showInformation();
+							System.out.println();
+							flag = true;
+						}
+					}
+
+					if (flag == false)
 						System.out.println("Employee is not found!");
 					break;
 				case 4:

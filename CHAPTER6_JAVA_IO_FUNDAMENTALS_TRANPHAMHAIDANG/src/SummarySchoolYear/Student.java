@@ -2,6 +2,12 @@ package SummarySchoolYear;
 
 import java.text.DecimalFormat;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 16-Sep-2016
+ * Class for Student
+ */
 public class Student {
 
 	private String name;
