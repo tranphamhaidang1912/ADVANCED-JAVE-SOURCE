@@ -1,4 +1,4 @@
-package STREAM;
+package JAVA_IO;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -13,10 +13,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import JDBC.CD;
-
 import com.mysql.cj.api.jdbc.Statement;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 19-Sep-2016 Class for Manage CD
+ */
 public class ManageCD {
 
 	private static Database db = new Database();
@@ -25,10 +28,10 @@ public class ManageCD {
 		// TODO Auto-generated method stub
 
 		List<CD> listCD = new ArrayList<CD>();
-		//loadDatabase(listCD);
+		loadDatabase(listCD);
 		
-		String path = "src/STREAM/cd.txt";
-		//outputFile(path, listCD);
+		String path = "src/JAVA_IO/cd.txt";
+		writeFile(path, listCD);
 		readFile(path, listCD);
 		
 		System.out.println("LIST CD\n");
@@ -42,6 +45,7 @@ public class ManageCD {
 		}
 	}
 
+	//Load database
 	public static void loadDatabase(List<CD> listCD)
 			throws ClassNotFoundException, SQLException {
 		try (Connection conn = db.connect()) {
@@ -63,10 +67,11 @@ public class ManageCD {
 		}
 	}
 	
+	//Read from file
 	public static void readFile(String path, List<CD> listCD) {
 
 		try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))) {
-
+			listCD.clear();
 			while (true) {
 				CD cd = (CD) in.readObject();
 				listCD.add(cd);
@@ -78,7 +83,8 @@ public class ManageCD {
 		}
 	}
 
-	public static void outputFile(String path, List<CD> listCD) throws FileNotFoundException, IOException {
+	//Write to file
+	public static void writeFile(String path, List<CD> listCD) throws FileNotFoundException, IOException {
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(path));
 		for (CD cd : listCD) {
 			out.writeObject(cd);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2016 at 08:05 AM
+-- Generation Time: Sep 20, 2016 at 03:45 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `cdstore`
 --
+CREATE DATABASE IF NOT EXISTS `cdstore` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `cdstore`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cd`
 --
 
+DROP TABLE IF EXISTS `cd`;
 CREATE TABLE IF NOT EXISTS `cd` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,

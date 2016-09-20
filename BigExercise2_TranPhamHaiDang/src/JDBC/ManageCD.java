@@ -11,6 +11,11 @@ import java.util.Scanner;
 import com.mysql.cj.api.jdbc.Statement;
 import com.mysql.cj.jdbc.PreparedStatement;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 19-Sep-2016 Class for Manage CD
+ */
 public class ManageCD {
 
 	private static Scanner sc = new Scanner(System.in);
@@ -21,20 +26,21 @@ public class ManageCD {
 		// TODO Auto-generated method stub
 
 		List<CD> listCD = new ArrayList<CD>();
-		loadDatabase(listCD);
 
 		String chooseContinue;
 		int chooseFunction;
 
 		try {
 			do {
+				System.out.println("------MANAGE CD------");
 				System.out
 						.println("1/Show list CD\n2/Add new CD\n3/Search CD\n4/Update CD\n5/Delete CD");
+				System.out.print("Choose: ");
 				chooseFunction = sc.nextInt();
+				System.out.println();
 
 				switch (chooseFunction) {
 				case 1:
-					loadDatabase(listCD);
 					showListCD(listCD);
 					sc.nextLine();
 					break;
@@ -56,6 +62,7 @@ public class ManageCD {
 				}
 				System.out.println();
 				System.out.println("Do you want to continue? (y / n)");
+				System.out.print("Choose: ");
 				chooseContinue = sc.nextLine();
 				System.out.println();
 
@@ -66,13 +73,14 @@ public class ManageCD {
 		}
 	}
 
+	//Load database
 	public static void loadDatabase(List<CD> listCD)
 			throws ClassNotFoundException, SQLException {
 		try (Connection conn = db.connect()) {
 			String sql = "SELECT * FROM cd";
 			Statement statement = (Statement) conn.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-
+			listCD.clear();
 			while (resultset.next()) {
 				CD cd = new CD();
 
@@ -87,7 +95,10 @@ public class ManageCD {
 		}
 	}
 
-	public static void showListCD(List<CD> listCD) {
+	//Show list CD
+	public static void showListCD(List<CD> listCD) throws ClassNotFoundException, SQLException {
+		loadDatabase(listCD);
+		
 		System.out.println("LIST CD\n");
 		if (listCD.isEmpty() == true)
 			System.out.println("List CD is empty!");
@@ -99,6 +110,7 @@ public class ManageCD {
 		}
 	}
 
+	//Add new CD
 	public static void addCD(List<CD> listCD) throws ClassNotFoundException,
 			SQLException {
 
@@ -127,6 +139,7 @@ public class ManageCD {
 		}
 	}
 
+	//Search CD
 	public static void searchCD(List<CD> listCD) {
 		sc.nextLine();
 		System.out.println("Input CD's name:");
@@ -145,6 +158,7 @@ public class ManageCD {
 			System.out.println("CD is not found!");
 	}
 
+	//Update CD
 	public static void updateCD(List<CD> listCD) throws ClassNotFoundException,
 			SQLException {
 		showListCD(listCD);
@@ -152,9 +166,9 @@ public class ManageCD {
 		sc.nextLine();
 		System.out.println("Input CD's name:");
 		String nameUpdate = sc.nextLine();
-		System.out.println("Input number of songs:");
+		System.out.println("Update number of songs:");
 		int numOfSongs = sc.nextInt();
-		System.out.println("Input price:");
+		System.out.println("Update price:");
 		double price = sc.nextDouble();
 		sc.nextLine();
 
@@ -183,6 +197,7 @@ public class ManageCD {
 			System.out.println("CD is not found!");
 	}
 
+	//Delete CD
 	public static void deleteCD(List<CD> listCD) throws ClassNotFoundException, SQLException {
 		showListCD(listCD);
 
@@ -191,7 +206,9 @@ public class ManageCD {
 		String nameDelete = sc.nextLine();
 
 		System.out.println("Do you want to delete this contact? (y / n)");
+		System.out.print("Choose: ");
 		String chooseDelete = sc.nextLine();
+		System.out.println();
 
 		if (chooseDelete.compareToIgnoreCase("y") == 0) { 
 			if (listCD.remove(new CD(nameDelete))) {

@@ -1,4 +1,4 @@
-package STREAM;
+package JAVA_IO;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @version 1.0
  * @created 19-Sep-2016 Class for CD
  */
-public class CD implements Comparable<CD>, Serializable {
+public class CD implements Serializable {
 
 	private int id;
 	private String name;
@@ -80,18 +80,6 @@ public class CD implements Comparable<CD>, Serializable {
 		System.out.println("Singer: " + singer);
 		System.out.println("Number of songs: " + numberSongs);
 		System.out.println("Price: " + price);
-	}
-
-	@Override
-	public int compareTo(CD o) {
-		// TODO Auto-generated method stub
-		return this.name.compareTo(o.name);
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		CD cd = (CD) o;
-		return this.name.equalsIgnoreCase(cd.name);
 	}
 
 }

@@ -26,6 +26,11 @@ import org.xml.sax.SAXException;
 
 import com.mysql.cj.api.jdbc.Statement;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 19-Sep-2016 Class for Manage CD
+ */
 public class ManageCD {
 
 	private static Database db = new Database();
@@ -36,10 +41,10 @@ public class ManageCD {
 		// TODO Auto-generated method stub
 
 		List<CD> listCD = new ArrayList<CD>();
-		//loadDatabase(listCD);
+		loadDatabase(listCD);
 		
 		String path = "src/XML/cd.xml";
-		// saveListCDToNodeList(path, listCD);
+		saveListCDToNodeList(path, listCD);
 		readNodeList(path, listCD);
 		
 		System.out.println("LIST CD\n");
@@ -53,13 +58,14 @@ public class ManageCD {
 		}
 	}
 
+	//Load database
 	public static void loadDatabase(List<CD> listCD)
 			throws ClassNotFoundException, SQLException {
 		try (Connection conn = db.connect()) {
 			String sql = "SELECT * FROM cd";
 			Statement statement = (Statement) conn.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-
+			listCD.clear();
 			while (resultset.next()) {
 				CD cd = new CD();
 
@@ -74,6 +80,7 @@ public class ManageCD {
 		}
 	}
 
+	//Read node list
 	public static void readNodeList(String path, List<CD> listCD)
 			throws ParserConfigurationException, SAXException, IOException {
 		// TODO Auto-generated method stub
@@ -84,6 +91,7 @@ public class ManageCD {
 		Document doc = dBuilder.parse(xmlFile);
 		doc.getDocumentElement().normalize();
 		NodeList nodeList = doc.getElementsByTagName("CD");
+		listCD.clear();
 		if (nodeList != null) {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Node node = nodeList.item(i);
@@ -109,6 +117,7 @@ public class ManageCD {
 		}
 	}
 
+	//Save list CD to node list
 	public static void saveListCDToNodeList(String path, List<CD> listCD)
 			throws ParserConfigurationException, FileNotFoundException,
 			SAXException, IOException, TransformerException {

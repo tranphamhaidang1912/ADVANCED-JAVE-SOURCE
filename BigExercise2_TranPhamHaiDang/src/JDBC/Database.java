@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * @author Tran Pham Hai Dang
+ * @version 1.0
+ * @created 19-Sep-2016 Class for Database
+ */
 public class Database {
 
 	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cdstore?useUnicode=true&characterEncoding=utf8";
